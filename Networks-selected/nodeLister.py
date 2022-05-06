@@ -13,7 +13,7 @@ for line in myFile.readlines():
     target = line[2]
     if '"'+source+'"' not in nodes:
         nodes.append('"'+source+'"')
-    if '"'+source+'"' not in nodes:
+    if '"'+target+'"' not in nodes:
         nodes.append('"'+target+'"')
 
 filename = "json/"+args["input"][:-13]+"_nodes.txt"

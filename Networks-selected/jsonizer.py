@@ -10,19 +10,19 @@ links = []
 
 for line in myFile.readlines():
     line = (line.strip()).split(",")
-    source = line[1]
-    target = line[2]
+    source = line[0]
+    target = line[1]
     if source not in nodes:
         nodes.append(source)
     if target not in nodes:
         nodes.append(target)
     links.append((source,target))
 
-filename = "json/"+args["input"][:-13]+"_network.txt"
+filename = "json/"+args["input"][:-4]+"_network.txt"
 
 f = open(filename,"w")
 
-f.write(("var "+args["input"][:-13]+"_network = "+'{\n"nodes": [\n'))
+f.write(("var "+args["input"][:-4]+"_network = "+'{\n"nodes": [\n'))
 
 for node in nodes:
     if nodes.index(node) != len(nodes)-1:

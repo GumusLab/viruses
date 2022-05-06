@@ -7,7 +7,6 @@
   <script src="libraries/dat.gui.js"></script>
   <script src="libraries/d3.v3.min.js" charset="utf-8"></script>
   <script src="libraries/rainbowvis.js"></script>
-  <script src="https://github.com/mrdoob/three.js/blob/dev/examples/jsm/deprecated/Geometry.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/tweakpane@3.0.2/dist/tweakpane.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -193,6 +192,9 @@ display: none;
               <option value="con_CHIK_network">con_CHIK_network</option>
               <option value="con_DENG_network">con_DENG_network</option>
               <option value="con_ZIKA_network">con_ZIKA_network</option>
+              <option value="chik_network_geneid_network">chik_network_geneid</option>
+              <option value="deng_network_geneid_network">deng_network_geneid</option>
+              <option value="zika_network_geneid_network">zika_network_geneid</option>
           </select>
       </label>
     </div>
@@ -424,10 +426,23 @@ function addOptions(addText, selectElement)
       finalDataObj = con_DENG_network
       nodesList = con_DENG_nodes
     }
-    else{
+    else if (selectedNetwork == "con_ZIKA_network"){
       finalDataObj = con_ZIKA_network
       nodesList = con_ZIKA_nodes
     }
+    else if (selectedNetwork == "chik_network_geneid_network"){
+      finalDataObj = chik_network_geneid_network
+      nodesList = chik_network_geneid_nodes
+    }
+    else if (selectedNetwork == "deng_network_geneid_network"){
+      finalDataObj = deng_network_geneid_network
+      nodesList = deng_network_geneid_nodes
+    }
+    else if (selectedNetwork == "zika_network_geneid_network"){
+      finalDataObj = zika_network_geneid_network
+      nodesList = zika_network_geneid_nodes
+    }
+
      /////////////// JSON FILE ////////////////
        Graph = ForceGraph3D({rendererConfig:{preserveDrawingBuffer: true}})
        .backgroundColor("#ffffff")
